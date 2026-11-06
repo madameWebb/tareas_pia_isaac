@@ -3,13 +3,4 @@
 #Ao final o programa debe amosar por pantalla as materias que o usuario ten que repetir.
 
 #Neste programa trátase de eliminar, é dicir, primeiro se mete todo e logo eliminamos… dalgun xeito
-
-
-if __name__ == "__main__":
-
-    
-        
-
-
-
     
