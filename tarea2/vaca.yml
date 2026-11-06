@@ -1,0 +1,10 @@
+name: vaca
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12.15=hcd0331c_0
+  - cowpy
+  - pip
+  - pip:
+    - cowsay
