@@ -4,7 +4,19 @@
 
 #No programa principal podes chamar a esa función, recoller o resultado e acceder á tupla devolta para facer a impresión en pantalla.
 
+#se indica que recibe una tupla cuyos componentes son integer
+def calcular(factores: tuple[int, int]):
+    dividendo, divisor = factores
+    cociente = dividendo // divisor
+    resto = dividendo % divisor
+
+    return (cociente, resto)
 
 if __name__ == "__main__":
+    factores= (int(input("Escribe un número entero: ")), int(input("Escribe otro número entero: ")))
+    cociente_resto = calcular(factores)
+    print(factores[0], " dividido entre: ", factores[1], " tiene como cociente: ", int(cociente_resto[0]), " y como resto: ", cociente_resto[1])
+    print(f"{factores[0]} dividido entre {factores[1]} tiene como cociente {cociente_resto[0]} y como resto {cociente_resto[1]}")
+
 
     
