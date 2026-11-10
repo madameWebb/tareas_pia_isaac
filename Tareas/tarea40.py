@@ -8,25 +8,54 @@
 
 
 
-def construir_menu(opcion):
+def construir_menu():
+    return int(input("Escribe el número correspondiente para operar: \n 1 comprar \n 2 recibir total \n 3 salir app \n"))
 
-    while opcion is not 2:
+    
+def llenar_carrito(opcion, carrito):
+    if opcion == 3:
+        print("Hasta pronto")
+    
+    elif opcion == 2:
+        if len(carrito) == 0:
+            print("No hay nada en tu carrito")
+            llenar_carrito(construir_menu(), carrito)
+        else:
+            opcion = mostrar(carrito)
+            
+    else:
+        elegir_productos(carrito)
 
+def elegir_productos(carrito):
+    clave = input("Que producto deseas comprar? ") 
+    valor = float(input (f"Cuanto cuesta {clave} "))
+    carrito[clave] = valor
+    llenar_carrito(construir_menu(), carrito)
+
+def mostrar(carrito):
+    
+    print("lista da compra")
+    
+    for clave,valor in carrito.items():
+        print(f"{clave} \t {valor}")
+
+    print(f"Total \t {sum(carrito.values())}")
+    
+    return llenar_carrito(construir_menu(), carrito)
+    
+    
+    
 
 if __name__ == "__main__":
-    opcion = int(input("Escribe el número correspondiente para operar: \n 1 comprar \n 2 recibir total \n 3 salir app"))
-    if opcion == 3:
-        pass
-    elif opcion == 2:
-        pass
-    else:
-        construir_menu(opcion)
+
+    carrito = {}
+    
+    llenar_carrito(construir_menu(), carrito)
+
+   
 
     
 
-    quilos = input("Cuantos quilos quieres? ")
-
-    coste = calcular_precio(float(dict_fruta[fruta]), float(quilos))
     
-            
-    print(f"{quilos} de {fruta}, a {dict_fruta[fruta]}, cuesta {coste} €")
+
+    
