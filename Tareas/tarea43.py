@@ -14,7 +14,7 @@
 # Xera os tes unitarios correspondentes.
 
 
-def aplicar(valor:any, precio:float)->any:
+def aplicar(precio:float, valor:any)->any:
     if valor is not None:
         resultado_valor = precio*valor/100
         valor_aplicado = precio + resultado_valor
@@ -26,24 +26,24 @@ def mostrar(cesta:dict[str, list[float, float, float]])->None:
     total = []
     print(f"Producto    Precio    Iva    Precio + Iva    Descuento    Precio + Descuento    Total")
     for clave, valor in cesta.items():
-        for elemento in cesta[clave]:
-            i = 0
-            print(f"{clave}    {elemento[0]}    {elemento[1]}    {elemento[0] + elemento[1]}    {elemento[2]}    {elemento[0] + elemento[2]}    {elemento[0] + elemento[1] + elemento[2]}")
-            if len(total) <= 4:
-                
-                if total[i] is not None:
-                    total.append(elemento[i])
-                    
-                else:
-                    total[i].append[0]
-            else:
-                if total[i] is not None:
-                    total.append(elemento[i])
-                    
-                else:
-                    total[i].append[0]
+        valores =[]
+        i = 0
+        for elemento in valor:
+            
+            valores.append(elemento)
+            
+            total.append(valores[i])
+            i = +1
+
+        
+        print(f"{clave}    {valores[0]:.2f}       {valores[1]:.2f}        {(valores[0] + valores[1]):.2f}        {valores[2]:.2f}       {(valores[0] + valores[2]):.2f}                  {(valores[0] + valores[1] + valores[2]):.2f}")
+        
+        
+            
+        
     
-    print(f"Totales    {total[0]}    Total + Iva = {total[0]*total[1]/100}    Total Descuentos{total[2]}    {total[3]}")
+    print(f"Totales    {total[0]}    Total + Iva = {total[0]*(1+total[1]/100)}    Total Descuentos{total[2]}")
+    total = []
 
 
 if __name__ == "__main__":
@@ -57,15 +57,26 @@ if __name__ == "__main__":
     precios = {"manzanas":[1.35, iva_4, None],
              "lavavajillas":[2.35, iva_10, descuento],
              "patatillas":[3.00, iva_21, descuento]}
-    cesta:dict[str, list[float, float, float]]
+    
+    iva_manzanas, manzanas_c_iva = A(precios["manzanas"][0]*2, precios["manzanas"][1])
+    descuentos_manzanas, manzanas_c_descuentos  =A(precios["manzanas"][0]*2, precios["manzanas"][2])
+    iva_lavavajillas, lavavajillas_c_iva = A(precios["lavavajillas"][0]*2, precios["lavavajillas"][1])
+    descuentos_lavavajillas, lavavajillas_c_descuentos  =A(precios["lavavajillas"][0]*2, precios["lavavajillas"][2])
+    iva_patatillas, patatillas_c_iva= A(precios["patatillas"][0]*2, precios["patatillas"][1])
+    descuentos_patatillas, patatillas_c_descuentos  =A(precios["patatillas"][0]*2, precios["patatillas"][2])
+    
+    
     cesta = {"manzanas":[precios["manzanas"][0]*2, 
-                         A(precios["manzanas"][0]*2, precios["manzanas"][1]), 
-                         A(precios["manzanas"][0]*2, precios["manzanas"][2])],
-             "lavavajillas":[precios["lavavajillas"][0], 
-                             A(precios["lavavajillas"][0], precios["lavavajillas"][1]),
-                             A(precios["lavavajillas"][0], precios["lavavajillas"][2])],
-             "patatillas":[precios["patatillas"][0],
-                           A(precios["patatillas"][0], precios["patatillas"][1]),
-                           A(precios["patatillas"][0], precios["patatillas"][2])]}
-
+                         iva_manzanas, 
+                         manzanas_c_iva,
+                         descuentos_manzanas]
+            #  "lavavajillas":[precios["lavavajillas"][0], 
+            #                  iva_lavavajillas, lavavajillas_c_iva,
+            #                  descuentos_lavavajillas],
+            #  "patatillas":[precios["patatillas"][0],
+            #                iva_patatillas,
+            #                patatillas_c_iva,
+            #                descuentos_patatillas]
+                           }
+    mostrar(cesta)
 
