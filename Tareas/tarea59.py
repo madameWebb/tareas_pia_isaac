@@ -52,11 +52,11 @@ def dividir(a: int, b: int) -> int | None:
     
 
 # if __name__ == "__main__":
-#  print(sumar(1, 1))
-#  print(restar(1, 2))
-#  print(multiplicar(2, 2))
-#  try:
-#     print(dividir(4, 0))
-#  except Exception as e:
-#      print(f"Error: {e}")
+#     try:
+#         print(sumar(1, 1))
+#         print(restar(1, 2))
+#         print(multiplicar(2, "a"))
+#         print(dividir(4, 0))
+#     except Exception as e:
+#         print(f"Error: {e}")
 

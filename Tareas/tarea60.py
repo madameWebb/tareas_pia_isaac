@@ -16,7 +16,7 @@
 #     Comproba que a lista non estea baleira antes de calcular os resultados. v
 #     Verifica e facer test. V
 
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal
 from statistics import mean
 from functools import wraps
 from typing import Callable

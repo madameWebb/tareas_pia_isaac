@@ -2,11 +2,11 @@
 
 # Xera os test unitarios.
 
-def aplicar(lista:list, funcion):
+def aplicar(lista:list[int | float | str], funcion):
     
     return funcion(lista)
 
-def funcion(lista:any):
+def funcion(lista:list[int | float | str] | int | float | str):
     if type(lista) is list:
         lista_modificada = []
         for elemento in lista:
